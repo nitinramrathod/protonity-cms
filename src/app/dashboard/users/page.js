@@ -12,7 +12,7 @@ const Page = async () => {
 
     return (
         <div>
-            {users && users?.map((item, index) => (
+            {users?.length > 0 && users?.map((item, index) => (
                 <UserCard
                     key={item.email}
                     username={item.username}
