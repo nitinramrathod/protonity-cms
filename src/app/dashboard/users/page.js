@@ -1,7 +1,10 @@
 import UserCard from '@/components/users/UserCard';
 import { fetchUsers } from '@/utils/services';
+import { revalidatePath } from 'next/cache'
+
 
 const Page = async () => {
+    revalidatePath('/dashboard/users')
     let users;
     try {
         users = await fetchUsers();
