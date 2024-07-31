@@ -4,6 +4,18 @@ import React, { useEffect, useState } from "react";
 import Table from "../Table/Table";
 import { fetchEnquiries } from "@/utils/services";
 
+
+const header = [
+  {title: "Name"},
+  {title: "Organization"},
+  {title: "Mobile"},
+  {title: "Email Id"},
+  {title: "Address"},
+  {title: "Pincode"},
+  {title: "Message"},
+  {title: "Action"}
+]
+
 const EnquiryList = () => {
   const [enquiry, setEnquiry] = useState(null);
 
@@ -20,7 +32,7 @@ const EnquiryList = () => {
   console.log("enquiry", enquiry);
 
   return (
-    <Table>
+    <Table header={header}>
       {enquiry?.length > 0 &&
         enquiry.map((item) => {
           return (
@@ -32,6 +44,7 @@ const EnquiryList = () => {
               <td>{item.address || "--"}</td>
               <td>{item.pincode || "--"}</td>
               <td>{item.message || "--"}</td>
+              <td>...</td>
             </tr>
           );
         })}

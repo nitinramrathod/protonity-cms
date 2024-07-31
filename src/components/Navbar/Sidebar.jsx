@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-width: 120px;
 
   a{
     color: white;
@@ -25,8 +26,8 @@ const Wrapper = styled.div`
 const Sidebar = () => {
   return (
     <Wrapper>
-      <Link href="/dashboard/enquiries">Dashboard</Link>
-      <Link href="/dashboard/enquiries">Enquiry</Link>
+      <Link href="/dashboard">Dashboard</Link>
+      <Link href="/dashboard/enquiries">Enquiries</Link>
       <Link href="/dashboard/users">Users</Link>
       <Link href="/contact-us">Contact Us</Link>
       <a href="#">Log Out</a>

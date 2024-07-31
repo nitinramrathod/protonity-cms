@@ -44,13 +44,9 @@ const Table = ({ children, header}) => {
     <StyledTable>
       <Thead>
         <tr>
-          <th>Name</th>
-          <th>Organization</th>
-          <th>Mobile</th>
-          <th>Email</th>
-          <th>Address</th>
-          <th>Pincode</th>
-          <th>Message</th>
+          {header?.length > 0 &&  header.map((item) => (
+            <th key={item.title}>{item.title}</th>
+          ))}
         </tr>
       </Thead>
       <Tbody>
