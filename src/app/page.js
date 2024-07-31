@@ -1,4 +1,4 @@
-import Input, { FormWrapper } from "@/components/Input";
+import Input, { FormWrapper } from "@/components/common/Input";
 
 
 

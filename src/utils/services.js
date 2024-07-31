@@ -1,12 +1,6 @@
 import axios from "axios";
 const BASE_URL =  process.env.BASE_URL;
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-console.log('MONGODB_URI===> ', MONGODB_URI);
-console.log('BASE_URL ===>', BASE_URL);
-
-
 const fetchUsers = async () => {
     try {
         const response = await axios({
@@ -19,6 +13,20 @@ const fetchUsers = async () => {
     }
 }
 
+const storeEnquiry = async (data) => {
+    try {
+        const response = await axios({
+            method: 'POST',
+            url: BASE_URL + '/api/enquiries',
+            data
+        });
+        return response.data;
+    } catch (error) {
+        return new Error('Error in storing enquiry:', error)
+    }
+}
+
 export {
-    fetchUsers
+    fetchUsers,
+    storeEnquiry
 }

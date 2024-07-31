@@ -12,9 +12,6 @@ const Page = async () => {
         console.error("error==>", error);
     }
 
-    console.log('users', users)
-
-
     return (
         <div>
             <h1>User List</h1>
