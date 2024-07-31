@@ -12,6 +12,18 @@ const fetchUsers = async () => {
         return new Error('Error fetching users:', error)
     }
 }
+const fetchEnquiries = async (params) => {
+    try {
+        const response = await axios({
+            method: 'GET',
+            url: BASE_URL + '/api/enquiries',
+            params
+        });
+        return response.data;
+    } catch (error) {
+        return new Error('Error fetching users:', error)
+    }
+}
 
 const storeEnquiry = async (data) => {
     try {
@@ -28,5 +40,6 @@ const storeEnquiry = async (data) => {
 
 export {
     fetchUsers,
-    storeEnquiry
+    storeEnquiry,
+    fetchEnquiries
 }

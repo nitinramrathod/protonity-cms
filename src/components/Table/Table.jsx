@@ -54,24 +54,7 @@ const Table = ({ children, header}) => {
         </tr>
       </Thead>
       <Tbody>
-        <tr>
-          <td>001</td>
-          <td>001</td>
-          <td>001</td>
-          <td>001</td>
-          <td>001</td>
-          <td>001</td>
-          <td>001</td>
-        </tr>
-        <tr>
-          <td>001</td>
-          <td>001</td>
-          <td>001</td>
-          <td>001</td>
-          <td>001</td>
-          <td>001</td>
-          <td>001</td>
-        </tr>
+        {children}
       </Tbody>
     </StyledTable>
   );

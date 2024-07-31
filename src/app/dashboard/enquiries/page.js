@@ -1,10 +1,15 @@
+import EnquiryList from '@/components/Dashboard/EnquiryList'
 import Table from '@/components/Table/Table'
+import { revalidatePath } from 'next/cache'
 import React from 'react'
 
-const page = () => {
+
+const page = async () => {
+
+  revalidatePath('/dashboard/enquiries')
   return (
     <div>
-      <Table></Table>
+      <EnquiryList></EnquiryList>
     </div>
   )
 }

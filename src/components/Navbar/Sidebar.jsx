@@ -28,7 +28,7 @@ const Sidebar = () => {
       <Link href="/dashboard/enquiries">Dashboard</Link>
       <Link href="/dashboard/enquiries">Enquiry</Link>
       <Link href="/dashboard/enquiries">Todo</Link>
-      <Link href="/dashboard/enquiries">Users</Link>
+      <Link href="/dashboard/users">Users</Link>
       <a href="#">Log Out</a>
     </Wrapper>
   );
