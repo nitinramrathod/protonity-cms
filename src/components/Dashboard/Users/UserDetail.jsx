@@ -46,7 +46,7 @@ export const UserDetail = () => {
   const handleSubmitClick = ()=>{
     storeUser(form).then(res=>{
       console.log(res);
-      router.push('/dashboard/uses')
+      router.push('/dashboard/users')
 
     }).catch(err=>{
       console.log(err);
