@@ -36,8 +36,8 @@ const UserList = () => {
               <td>{item?.name || "--"}</td>
               <td>{item?.username || "--"}</td>
               <td>{item?.email_id || "--"}</td>
-              <td>{item.password || "--"}</td>
-              <td>{item.status || "--"}</td>
+              <td>{item?.password || "--"}</td>
+              <td>{item?.status || "--"}</td>
               <td>...</td>
             </tr>
           );

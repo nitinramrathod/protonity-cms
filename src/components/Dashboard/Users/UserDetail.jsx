@@ -1,10 +1,13 @@
 "use client";
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import Input from "../common/Input";
-import Textarea from "../common/Textarea";
-import Button from "../common/Button";
-import { storeEnquiry } from "@/utils/services";
+
+import { storeEnquiry, storeUser } from "@/utils/services";
+import Textarea from "@/components/common/Textarea";
+import Input from "@/components/common/Input";
+import Button from "@/components/common/Button";
+import { useRouter } from 'next/navigation'
+
 
 const StyledForm = styled.div`
   max-width: 800px;
@@ -32,15 +35,22 @@ const StyledForm = styled.div`
     }
   }
 `;
-export const Form = () => {
+export const UserDetail = () => {
   const [form, setForm] = useState(null);
-
+  const router = useRouter()
+ 
   const handleInputChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmitClick = ()=>{
-    storeEnquiry(form)
+    storeUser(form).then(res=>{
+      console.log(res);
+      router.push('/dashboard/uses')
+
+    }).catch(err=>{
+      console.log(err);
+    })
   }
 
   return (
@@ -53,50 +63,29 @@ export const Form = () => {
           placeholder="Enter Name"
         />
         <Input
-          name="organization"
+          name="username"
           onChange={handleInputChange}
-          label="Organization Name"
-          placeholder="Enter Organization Name"
+          label="Username"
+          placeholder="Enter Username"
         />
       </div>
       <div className="input-row">
-        <Input
-          name="mobile"
-          onChange={handleInputChange}
-          label="Mobile"
-          type="tel"
-          placeholder="Enter Mobile"
-        />
         <Input
           name="email_id"
           onChange={handleInputChange}
-          label="Email Id"
+          label="Email ID"
           type="email"
-          placeholder="Enter Email"
-        />
-      </div>
-      <div className="input-row">
-        <Textarea
-          name="address"
-          onChange={handleInputChange}
-          label="Address"
-          placeholder="Enter Message"
+          placeholder="Enter Email ID"
         />
         <Input
-          name="pincode"
+          name="password"
           onChange={handleInputChange}
-          label="Pincode"
-          type="number"
-          placeholder="Enter Pincode"
+          label="Password"
+          type="text"
+          placeholder="Enter Password"
         />
       </div>
-      <Textarea
-        name="message"
-        onChange={handleInputChange}
-        label="Message"
-        placeholder="Enter Message"
-      />
-      <Button onClick={handleSubmitClick}>Submit</Button>
+      <Button onClick={handleSubmitClick}>Save</Button>
     </StyledForm>
   );
 };

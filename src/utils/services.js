@@ -37,9 +37,22 @@ const storeEnquiry = async (data) => {
         return new Error('Error in storing enquiry:', error)
     }
 }
+const storeUser = async (data) => {
+    try {
+        const response = await axios({
+            method: 'POST',
+            url: BASE_URL + '/api/users',
+            data
+        });
+        return response.data;
+    } catch (error) {
+        return new Error('Error in storing user:', error)
+    }
+}
 
 export {
     fetchUsers,
     storeEnquiry,
-    fetchEnquiries
+    fetchEnquiries,
+    storeUser
 }
