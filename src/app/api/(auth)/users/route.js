@@ -19,7 +19,10 @@ export const POST = async (request) => {
         const body = await request.json();
         await connect();
         const newUser = new User(body);
-        await newUser.save();
+       const saveUser =  await newUser.save();
+
+       console.log('saveUser', saveUser)
+       
         return new NextResponse(JSON.stringify({ message: "New user is created", user: newUser }), { status: 201 });
 
     } catch (error) {
