@@ -12,9 +12,12 @@ const Page = async () => {
         console.error("error==>", error);
     }
 
+    console.log('users', users)
+
 
     return (
         <div>
+            <h1>User List</h1>
             {users?.length > 0 && users?.map((item, index) => (
                 <UserCard
                     key={item.email}
