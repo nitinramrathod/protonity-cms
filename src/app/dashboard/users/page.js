@@ -1,4 +1,4 @@
-import UserList from '@/components/Dashboard/UserList';
+import UserList from '@/components/Dashboard/Users/UserList';
 import { revalidatePath } from 'next/cache'
 
 

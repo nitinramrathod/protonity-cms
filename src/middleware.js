@@ -7,7 +7,6 @@ const corsOptions = {
 }
 
 export function middleware(request) {
-  console.log('Hello middleware!')
 
   // Handle preflighted requests
   if (request.method === 'OPTIONS') {
