@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const Wrapper = styled.div`
-  background: #586572;
+  background: linear-gradient(#49545e, #586572) ;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
@@ -23,9 +23,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const Sidebar = () => {
+const Sidebar = ({
+  className
+}) => {
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <Link href="/dashboard">Dashboard</Link>
       <Link href="/dashboard/enquiries">Enquiries</Link>
       <Link href="/dashboard/users">Users</Link>

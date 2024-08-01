@@ -4,17 +4,19 @@ import React, { useEffect, useState } from "react";
 import Table from "../Table/Table";
 import { fetchEnquiries } from "@/utils/services";
 
-
 const header = [
-  {title: "Name"},
-  {title: "Organization"},
-  {title: "Mobile"},
-  {title: "Email Id"},
-  {title: "Address"},
-  {title: "Pincode"},
-  {title: "Message"},
-  {title: "Action"}
-]
+  { title: "Name" },
+  { title: "Organization" },
+  { title: "Mobile" },
+  { title: "Email Id" },
+  {
+    title: "Address",
+    width: "300px",
+  },
+  { title: "Pincode" },
+  { title: "Message" },
+  { title: "Action" },
+];
 
 const EnquiryList = () => {
   const [enquiry, setEnquiry] = useState(null);

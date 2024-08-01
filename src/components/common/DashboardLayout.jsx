@@ -3,11 +3,19 @@
 import styled from "@emotion/styled";
 
 export const MainWrapper = styled.div`
-  display: flex;
-  height: 100vh;
-  
-  .main-content{
+    height: 100vh;
+    min-height: 500px;
+  .sidebar-main-wrapper {
+    display: flex;
+    height: calc(100% - 50px);
+  }
+
+  .sidebar {
+    width: 170px;
+  }
+
+  .main-content {
     padding: 10px;
-    width: 100%;
+    width: calc(100% - 170px);
   }
 `;
