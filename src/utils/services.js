@@ -16,7 +16,7 @@ const fetchEnquiries = async (params) => {
     try {
         const response = await axios({
             method: 'GET',
-            url: BASE_URL + '/api/enquiries',
+            url: '/api/enquiries',
             params
         });
         return response.data;
@@ -29,7 +29,7 @@ const storeEnquiry = async (data) => {
     try {
         const response = await axios({
             method: 'POST',
-            url: BASE_URL + '/api/enquiries',
+            url: '/api/enquiries',
             data
         });
         return response.data;
