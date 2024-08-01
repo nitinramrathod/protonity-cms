@@ -5,7 +5,7 @@ const fetchUsers = async () => {
     try {
         const response = await axios({
             method: 'GET',
-            url: BASE_URL + '/api/users',
+            url: '/api/users',
         });
         return response.data;
     } catch (error) {
