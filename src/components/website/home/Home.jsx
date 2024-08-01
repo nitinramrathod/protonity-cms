@@ -35,8 +35,12 @@ export const Wrapper = styled.section`
   .heading-wrapper {
     max-width: 900px;
     margin: 0 auto;
-    padding: 150px 100px 50px 100px;
+    padding-top: 150px;
+    padding-bottom: 50px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .button-wrapper {
