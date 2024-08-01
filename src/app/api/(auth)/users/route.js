@@ -17,12 +17,17 @@ export const GET = async () => {
 export const POST = async (request) => {
     try {
         const body = await request.json();
+        
         await connect();
-        const newUser = new User(body);
-       const saveUser =  await newUser.save();
 
-       console.log('saveUser', saveUser)
-       
+        const newUser = new User(body);
+
+        const saveUser = await newUser.save();
+
+        if (!saveUser) {
+            return new NextResponse(JSON.stringify({ message: "User Creating error." }), { status: 404 });
+        }
+
         return new NextResponse(JSON.stringify({ message: "New user is created", user: newUser }), { status: 201 });
 
     } catch (error) {
@@ -61,7 +66,7 @@ export const DELETE = async (request) => {
         const deleteUser = await User.findByIdAndDelete(userId);
 
         if (!deleteUser) {
-            return new NextResponse(JSON.stringify({message: "User not found in the database."}), { status: 404 });
+            return new NextResponse(JSON.stringify({ message: "User not found in the database." }), { status: 404 });
         }
 
         return new NextResponse(JSON.stringify({ message: "User successfully deleted." }), { status: 200 });

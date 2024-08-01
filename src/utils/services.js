@@ -41,7 +41,10 @@ const storeUser = async (data) => {
     try {
         const response = await axios({
             method: 'POST',
-            url: BASE_URL + '/api/users',
+            url: `/api/users`,
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+            },
             data
         });
         return response.data;
