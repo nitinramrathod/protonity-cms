@@ -1,16 +1,21 @@
+import { Heading, LinkButton, SubHeading, Wrapper } from "@/components/website/home/Home";
 import Link from "next/link";
 
 export default function Home() {
 
   return (
-    <div>
+    <Wrapper>
 
-      <h2>Welcome to</h2>
-      <h1>Multitech Computer Services</h1>
-      <div className="button-wrapper">
-        <Link href="/dashboard">Dashboard</Link>
-        <Link href="/contact-us">Contact Us</Link>
+      <div className="heading-wrapper">
+
+
+      <SubHeading>Welcome to</SubHeading>
+      <Heading>Multitech Computer Services</Heading>
       </div>
-    </div>
+      <div className="button-wrapper">
+        <LinkButton bordered href="/dashboard">Dashboard</LinkButton>
+        <LinkButton href="/contact-us">Contact Us</LinkButton>
+      </div>
+    </Wrapper>
   );
 }
