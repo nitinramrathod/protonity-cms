@@ -69,11 +69,27 @@ const storeUser = async (data) => {
         return new Error('Error in storing user:', error)
     }
 }
+const login = async (data) => {
+    try {
+        const response = await axios({
+            method: 'POST',
+            url: `/api/login`,
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+            },
+            data
+        });
+        return response?.data;
+    } catch (error) {
+        return new Error('Error in storing user:', error)
+    }
+}
 
 export {
     fetchUsers,
     storeEnquiry,
     fetchEnquiries,
     storeUser,
-    deleteUser
+    deleteUser,
+    login
 }

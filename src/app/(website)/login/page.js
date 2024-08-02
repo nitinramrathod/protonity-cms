@@ -1,9 +1,18 @@
+import { auth } from '@/auth';
 import Form from '@/components/website/login/Form'
+import { redirect } from 'next/navigation';
 import React from 'react'
 
-const Page = () => {
+const Page = async() => {
+
+  const session = await auth();
+
+  if(session?.user){
+    redirect('/dashboard')
+  }
+
   return (
-    <Form/>
+    <Form session={session}/>
   )
 }
 

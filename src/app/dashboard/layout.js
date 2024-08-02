@@ -1,13 +1,19 @@
+import { auth } from '@/auth'
 import { MainWrapper } from '@/components/common/DashboardLayout'
 import Sidebar from '@/components/Navbar/Sidebar'
 import TopBar from '@/components/Navbar/TopBar'
 import React from 'react'
 
-const Dashboard = ({ children }) => {
+const Dashboard = async({ children }) => {
+
+    const session = await auth();
+
+    console.log('session==>',session);
+
     return (<>
 
         <MainWrapper>
-        <TopBar />
+        <TopBar session={session}/>
             <div className="sidebar-main-wrapper">
 
             <Sidebar className='sidebar' />

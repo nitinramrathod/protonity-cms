@@ -36,11 +36,12 @@ const Wrapper = styled.div`
   }
 `;
 
-const TopBar = () => {
+const TopBar = ({session}) => {
+  const avatar = session?.name.split(" ")[0].charAt(0).toUpperCase() + session?.name.split(" ")[1].charAt(0).toUpperCase() 
   return (
     <Wrapper>
       <h1 className="heading">MCS</h1>
-      <p className="avatar">NR</p>
+      <p title={session?.name} className="avatar">{avatar}</p>
     </Wrapper>
   );
 };

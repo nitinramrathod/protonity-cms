@@ -1,7 +1,10 @@
+import { auth } from '@/auth';
 import Navigation from '@/components/website/navigation/Navigation'
+import { redirect } from 'next/navigation';
 import React from 'react'
 
-const WebsiteLayout = ({ children }) => {
+const WebsiteLayout = async ({ children }) => {
+
     return (<>
 
         <Navigation />
