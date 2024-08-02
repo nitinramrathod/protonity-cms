@@ -8,8 +8,6 @@ const Dashboard = async({ children }) => {
 
     const session = await auth();
 
-    console.log('session==>',session);
-
     return (<>
 
         <MainWrapper>

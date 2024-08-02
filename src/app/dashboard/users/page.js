@@ -1,12 +1,12 @@
 import { auth } from '@/auth';
 import UserList from '@/components/Dashboard/Users/UserList';
 import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/dist/server/api-utils';
+import { redirect } from 'next/navigation';
+
 
 
 const Page = async () => {
     revalidatePath('/dashboard/users')
-
 
     const session = await auth();
 
