@@ -11,12 +11,12 @@ export const MainWrapper = styled.div`
   }
 
   .sidebar {
-    width: 170px;
+    width: 210px;
   }
 
   .main-content {
     padding: 10px;
-    width: calc(100% - 170px);
+    width: calc(100% - 210px);
     background: linear-gradient(170deg, #383f4c, #1b1b1b);
   }
 `;

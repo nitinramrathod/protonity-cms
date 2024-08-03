@@ -6,6 +6,7 @@ import { deleteUser, fetchUsers } from "@/utils/services";
 import styled from "@emotion/styled";
 import ListPageHeader from "../ListPageHeader";
 import { Loader, MainWrapper } from "../EnquiryList";
+import { delete_icon, edit_icon } from "@/components/assets/icons/dashboard";
 
 const header = [
   { title: "Name" },
@@ -17,18 +18,26 @@ const header = [
 ];
 
 // Styled Components Start
-const ActionTd = styled.td`
-  display: flex;
-  gap: 10px;
+export const ActionTd = styled.td`
+  div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 
-  button.delete {
-    background: transparent;
-    border: none;
-    color: #f85858;
-  }
-  button.edit {
-    background: transparent;
-    color: #4d4dd8;
+    button.delete,
+    button.edit {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      svg {
+        fill: #f85858;
+      }
+    }
+    button.edit {
+      svg {
+        fill: #4d4dd8;
+      }
+    }
   }
 `;
 // Styled Components End
@@ -110,13 +119,15 @@ const UserList = () => {
                 <td>{item?.password || "--"}</td>
                 <td>{item?.status ? "Active" : "Inactive"}</td>
                 <ActionTd>
-                  <button
-                    onClick={() => handleDeleteUser(item._id)}
-                    className="delete"
-                  >
-                    Delete
-                  </button>
-                  <button className="edit">Edit</button>
+                  <div>
+                    <button className="edit">{edit_icon}</button>
+                    <button
+                      onClick={() => handleDeleteUser(item._id)}
+                      className="delete"
+                    >
+                      {delete_icon}
+                    </button>
+                  </div>
                 </ActionTd>
               </tr>
             );

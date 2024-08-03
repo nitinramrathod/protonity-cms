@@ -54,6 +54,17 @@ const deleteUser = async (id) => {
         return new Error('Error in deleting user:', error)
     }
 }
+const deleteEnquiry = async (id) => {
+    try {
+        const response = await axios({
+            method: 'DELETE',
+            url: '/api/enquiries/'+id,
+        });
+        return response.data;
+    } catch (error) {
+        return new Error('Error in deleting enquiry:', error)
+    }
+}
 const storeUser = async (data) => {
     try {
         const response = await axios({
@@ -91,5 +102,6 @@ export {
     fetchEnquiries,
     storeUser,
     deleteUser,
+    deleteEnquiry,
     login
 }

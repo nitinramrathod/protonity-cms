@@ -2,9 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import Table from "../Table/Table";
-import { fetchEnquiries } from "@/utils/services";
+import { deleteEnquiry, deleteUser, fetchEnquiries } from "@/utils/services";
 import ListPageHeader from "./ListPageHeader";
 import styled from "@emotion/styled";
+import { ActionTd } from "./Users/UserList";
+import { delete_icon, edit_icon } from "../assets/icons/dashboard";
 
 const header = [
   { title: "Name" },
@@ -69,7 +71,20 @@ const EnquiryList = () => {
     error: false,
   });
 
-  useEffect(() => {
+  // /api/enquiries/
+
+  const handleDeleteEnquiry = (id) => {
+    deleteEnquiry(id)
+      .then((res) => {
+        console.log("Success", res);
+        getEnquiries();
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
+  const getEnquiries = () => {
     setStats((prev) => ({
       ...prev,
       loading: true,
@@ -91,6 +106,10 @@ const EnquiryList = () => {
         }));
         console.log("error", error);
       });
+  };
+
+  useEffect(() => {
+    getEnquiries();
   }, []);
 
   const buttonProps = {
@@ -102,8 +121,6 @@ const EnquiryList = () => {
     { title: "Total Enquiry", count: enquiry?.length || 0 },
     { title: "Resolved Enquiry", count: 0 },
   ];
-
-
 
   return (
     <MainWrapper>
@@ -127,7 +144,17 @@ const EnquiryList = () => {
                 <td>{item.address || "--"}</td>
                 <td>{item.pincode || "--"}</td>
                 <td>{item.message || "--"}</td>
-                <td>...</td>
+                <ActionTd>
+                  <div>
+                    <button className="edit">{edit_icon}</button>
+                    <button
+                      className="delete"
+                      onClick={() => handleDeleteEnquiry(item._id)}
+                    >
+                      {delete_icon}
+                    </button>
+                  </div>
+                </ActionTd>
               </tr>
             );
           })
