@@ -2,6 +2,7 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 import React from "react";
+import { signOut } from "next-auth/react"
 
 const Wrapper = styled.div`
   background: linear-gradient(#49545e, #586572);
@@ -16,6 +17,18 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+  .logout{
+    background: transparent;
+    border: none;
+    text-align: left;
+    color: #e4e4e4;
+    font-size: 16px;
+    padding: 10px;
+    background: #9a9a9a;
+    border-radius: 10px;
+    cursor: pointer;
   }
 
   a {
@@ -45,7 +58,7 @@ const Sidebar = ({ className }) => {
         <Link href="/contact-us">Contact Us</Link>
         <Link href="/">Home</Link>
       </div>
-      <a href="#">Log Out</a>
+      <button className="logout" onClick={()=>signOut()}>Log Out</button>
     </Wrapper>
   );
 };

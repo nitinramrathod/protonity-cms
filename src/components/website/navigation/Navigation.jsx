@@ -3,6 +3,7 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 import React from "react";
+import { useSession } from "next-auth/react"
 
 const StyledNav = styled.nav`
   background: grey;
@@ -39,6 +40,10 @@ const Logo = styled.h2`
 `;
 
 const Navigation = () => {
+
+  const session = useSession()
+
+  console.log('session', session)
   return (
     <StyledNav>
       <Logo>
@@ -51,8 +56,9 @@ const Navigation = () => {
         <li>
           <Link href="/contact-us">Contact Us</Link>
         </li>
+
         <li>
-          <Link href="/login">Login</Link>
+          {session.data ? <Link href="/dashboard">Dashboard</Link> : <Link href="/login">Login</Link> }          
         </li>
       </ul>
     </StyledNav>
