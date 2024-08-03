@@ -16,6 +16,8 @@ const StyledForm = styled.div`
   flex-direction: column;
   gap: 20px;
   padding: 20px;
+  background: #bfc5cb;
+  border-radius: 5px;
 
   .input-row {
     display: flex;
