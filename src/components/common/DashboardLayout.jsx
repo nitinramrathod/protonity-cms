@@ -17,5 +17,6 @@ export const MainWrapper = styled.div`
   .main-content {
     padding: 10px;
     width: calc(100% - 170px);
+    background: linear-gradient(170deg, #383f4c, #1b1b1b);
   }
 `;

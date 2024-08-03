@@ -39,7 +39,7 @@ const Tbody = styled.tbody`
 const Wrapper = styled.div`
   width: 100%;
   overflow: auto;
-  border-radius: 10px;
+  border-radius: 5px;
 `;
 
 const Table = ({ children, header }) => {
