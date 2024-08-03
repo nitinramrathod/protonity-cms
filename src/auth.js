@@ -1,8 +1,7 @@
-import NextAuth from "next-auth";
+import NextAuth, { CredentialsSignin } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import Users from "./app/lib/modals/user";
 import connect from "./app/lib/db";
-import { NextResponse } from "next/server";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
@@ -15,6 +14,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             authorize: async (credentials) => {
 
                 try {
+
+                    // throw new CredentialsSignin('helo hello...')
 
                     const email_id = credentials.email_id;
 

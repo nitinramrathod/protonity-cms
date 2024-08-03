@@ -32,7 +32,12 @@ export const POST = async (request) => {
             redirect: false,
         })
 
-        return new NextResponse(JSON.stringify({message: "User Logged in successfully."}), { status: 201 });
+        if(signing){
+
+            return new NextResponse(JSON.stringify({message: "User Logged in successfully."}), { status: 201 });
+        }
+        
+        return new NextResponse(JSON.stringify({message: "Something went wrong."}), { status: 500 });
 
     } catch (error) {
         return new NextResponse("Error in login user: " + error.message, { status: 500 });

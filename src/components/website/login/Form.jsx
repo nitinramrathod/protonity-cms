@@ -5,9 +5,12 @@ import { Wrapper } from "./StyledComponents";
 import Input from "@/components/common/Input";
 import Button from "@/components/common/Button";
 import { login } from "@/utils/services";
+import { useRouter } from "next/navigation";
 
 const Form = ({session}) => {
   const [info, setInfo] = useState(null);
+
+  const router = useRouter();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInfo(prev=>({ ...prev, [name]: value }));
@@ -18,6 +21,8 @@ const Form = ({session}) => {
     login(info)
       .then((res) => {
         console.log("res", res);
+        router.push("/dashboard");
+        
       })
       .catch((err) => {
         console.log("err", err);

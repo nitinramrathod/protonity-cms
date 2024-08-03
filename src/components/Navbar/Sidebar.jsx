@@ -43,6 +43,7 @@ const Sidebar = ({ className }) => {
         <Link href="/dashboard/users">Users</Link>
         <Link href="/dashboard/users/add">Add User</Link>
         <Link href="/contact-us">Contact Us</Link>
+        <Link href="/">Home</Link>
       </div>
       <a href="#">Log Out</a>
     </Wrapper>

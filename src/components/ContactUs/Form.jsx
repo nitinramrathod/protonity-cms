@@ -5,8 +5,9 @@ import Input from "../common/Input";
 import Textarea from "../common/Textarea";
 import Button from "../common/Button";
 import { storeEnquiry } from "@/utils/services";
+import { useRouter } from "next/navigation";
 
-const StyledForm = styled.div`
+const StyledForm = styled.form`
   max-width: 800px;
   margin: 0 auto;
   display: flex;
@@ -34,17 +35,27 @@ const StyledForm = styled.div`
 `;
 export const Form = () => {
   const [form, setForm] = useState(null);
+  const router = useRouter();
 
   const handleInputChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmitClick = ()=>{
+  const handleSubmitClick = (e) => {
+    e.preventDefault();
     storeEnquiry(form)
-  }
+      .then((res) => {
+        console.log("res", res);
+        setForm("");
+        e.target.reset();
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  };
 
   return (
-    <StyledForm>
+    <StyledForm onSubmit={handleSubmitClick}>
       <div className="input-row">
         <Input
           label="Name"
@@ -96,7 +107,7 @@ export const Form = () => {
         label="Message"
         placeholder="Enter Message"
       />
-      <Button onClick={handleSubmitClick}>Submit</Button>
+      <Button>Submit</Button>
     </StyledForm>
   );
 };

@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
+// let mongoose;
 
-console.log('MONGODB_URI ', MONGODB_URI);
+// if (typeof window === 'undefined') {
+//   mongoose = require('mongoose');
+// }
+
+const MONGODB_URI = process.env.MONGODB_URI;
 
 const connect = async () => {
     const connectionState = mongoose.connection.readyState;
@@ -29,8 +33,6 @@ const connect = async () => {
         console.log('Error: ', error);
         throw new Error(error);
     }
-
-
 }
 
 export default connect;

@@ -1,7 +1,14 @@
+import { auth } from "@/auth";
 import { Heading, LinkButton, SubHeading, Wrapper } from "@/components/website/home/Home";
-import Link from "next/link";
+export default async function Home() {
 
-export default function Home() {
+  const session = await auth();
+
+  // if(session?.user){
+  //   redirect('/dashboard')
+  // }
+
+  console.log('session==>', session)
 
   return (
     <Wrapper>
@@ -9,8 +16,8 @@ export default function Home() {
       <div className="heading-wrapper">
 
 
-      <SubHeading>Welcome to</SubHeading>
-      <Heading>Multitech Computer Services</Heading>
+        <SubHeading>Welcome to</SubHeading>
+        <Heading>Multitech Computer Services</Heading>
       </div>
       <div className="button-wrapper">
         <LinkButton bordered href="/dashboard">Dashboard</LinkButton>
