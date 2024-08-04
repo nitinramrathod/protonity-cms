@@ -139,11 +139,11 @@ const EnquiryList = () => {
               <tr key={item._id}>
                 <td>{item.name || "--"}</td>
                 <td>{item?.organization || "--"}</td>
-                <td>{item.mobile || "--"}</td>
-                <td>{item.email_id || "--"}</td>
-                <td>{item.address || "--"}</td>
-                <td>{item.pincode || "--"}</td>
-                <td>{item.message || "--"}</td>
+                <td>{item?.mobile || "--"}</td>
+                <td>{item?.email_id || "--"}</td>
+                <td>{item?.address || "--"}</td>
+                <td>{item?.pincode || "--"}</td>
+                <td>{item?.message || "--"}</td>
                 <ActionTd>
                   <div>
                     <button className="edit">{edit_icon}</button>

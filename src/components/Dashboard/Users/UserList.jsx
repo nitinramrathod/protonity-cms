@@ -120,6 +120,7 @@ const UserList = () => {
                 <td>{item?.status ? "Active" : "Inactive"}</td>
                 <ActionTd>
                   <div>
+                    <input type="checkbox" checked={item?.status} name="status" id="" />
                     <button className="edit">{edit_icon}</button>
                     <button
                       onClick={() => handleDeleteUser(item._id)}

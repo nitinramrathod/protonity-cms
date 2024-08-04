@@ -8,12 +8,20 @@ import { storeEnquiry } from "@/utils/services";
 import { useRouter } from "next/navigation";
 
 const StyledForm = styled.form`
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
+
+  .button-wrapper{
+    display: flex;
+    padding-top: 30px;
+    button{
+      padding: 10px 40px;
+    }
+  }
 
   .input-row {
     display: flex;
@@ -69,9 +77,10 @@ export const Form = () => {
           label="Organization Name"
           placeholder="Enter Organization Name"
         />
+      
       </div>
       <div className="input-row">
-        <Input
+      <Input
           name="mobile"
           onChange={handleInputChange}
           label="Mobile"
@@ -85,14 +94,7 @@ export const Form = () => {
           type="email"
           placeholder="Enter Email"
         />
-      </div>
-      <div className="input-row">
-        <Textarea
-          name="address"
-          onChange={handleInputChange}
-          label="Address"
-          placeholder="Enter Message"
-        />
+
         <Input
           name="pincode"
           onChange={handleInputChange}
@@ -100,14 +102,28 @@ export const Form = () => {
           type="number"
           placeholder="Enter Pincode"
         />
+      
       </div>
+      <div className="input-row">
+
+      <Textarea
+          name="address"
+          onChange={handleInputChange}
+          label="Address"
+          placeholder="Enter Full Address"
+        />
       <Textarea
         name="message"
         onChange={handleInputChange}
         label="Message"
-        placeholder="Enter Message"
-      />
+        placeholder="Enter Your Query"
+        />
+        </div>
+
+        <div className="button-wrapper">
+
       <Button>Submit</Button>
+        </div>
     </StyledForm>
   );
 };
