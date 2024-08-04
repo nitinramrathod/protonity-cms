@@ -54,6 +54,20 @@ const deleteUser = async (id) => {
         return new Error('Error in deleting user:', error)
     }
 }
+const updateStatus = async (id, status) => {
+    try {
+        const response = await axios({
+            method: 'PATCH',
+            url: `/api/users/${id}`,
+            params: {
+                status
+            }
+        });
+        return response.data;
+    } catch (error) {
+        return new Error('Error in deleting user:', error)
+    }
+}
 const deleteEnquiry = async (id) => {
     try {
         const response = await axios({
@@ -98,6 +112,7 @@ const login = async (data) => {
 
 export {
     fetchUsers,
+    updateStatus,
     storeEnquiry,
     fetchEnquiries,
     storeUser,

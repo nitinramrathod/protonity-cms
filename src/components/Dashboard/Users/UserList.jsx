@@ -2,11 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import Table from "../../Table/Table";
-import { deleteUser, fetchUsers } from "@/utils/services";
+import { deleteUser, fetchUsers, updateStatus } from "@/utils/services";
 import styled from "@emotion/styled";
 import ListPageHeader from "../ListPageHeader";
 import { Loader, MainWrapper } from "../EnquiryList";
 import { delete_icon, edit_icon } from "@/components/assets/icons/dashboard";
+import Status from "@/components/common/Status";
+import ToggleButton from "@/components/common/ToggleButton";
 
 const header = [
   { title: "Name" },
@@ -83,6 +85,20 @@ const UserList = () => {
         console.log("error", error);
       });
   };
+  const handleStatusChange = (id, current_status) => {
+    console.log("hello");
+
+    const status = current_status ? false : true;
+
+    updateStatus(id, status)
+      .then((res) => {
+        console.log("Success", res);
+        getUserList();
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
 
   useEffect(() => {
     getUserList();
@@ -117,10 +133,19 @@ const UserList = () => {
                 <td>{item?.username || "--"}</td>
                 <td>{item?.email_id || "--"}</td>
                 <td>{item?.password || "--"}</td>
-                <td>{item?.status ? "Active" : "Inactive"}</td>
+                <td>
+                  <Status status={item?.status} />
+                </td>
                 <ActionTd>
                   <div>
-                    <input type="checkbox" checked={item?.status} name="status" id="" />
+                    <ToggleButton
+                      onChange={() =>
+                        handleStatusChange(item?._id, item?.status)
+                      }
+                      checked={item?.status}
+                      name="status"
+                      id={item._id}
+                    ></ToggleButton>
                     <button className="edit">{edit_icon}</button>
                     <button
                       onClick={() => handleDeleteUser(item._id)}

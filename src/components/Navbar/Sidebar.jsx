@@ -34,6 +34,19 @@ const Wrapper = styled.div`
     display: flex;
     gap: 5px;
     align-items: center;
+    transition: all .3s ease;
+    svg{
+
+      transition: all .3s ease;
+    }
+
+    &:hover{
+      color: #0e5ba7;
+      background: #e8e8e8;
+      svg{
+        fill: #0e5ba7
+      }
+    }
   }
 
   a {
