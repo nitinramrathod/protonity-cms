@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import React from "react";
 
 const Wrapper = styled.div`
-  background: #596673;
+  background: #202932;
   display: flex;
   padding: 0 10px;
   gap: 20px;

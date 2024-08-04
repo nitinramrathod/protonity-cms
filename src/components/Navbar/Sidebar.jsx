@@ -7,8 +7,10 @@ import { usePathname } from "next/navigation";
 import { dashboard_icon, enquiry_icon, home_icon, logout_icon, users_icon } from "../assets/icons/dashboard";
 
 const Wrapper = styled.div`
-  background: linear-gradient(#49545e, #586572);
+    background: linear-gradient(#36393b, #1e2f40);;
   padding: 40px 20px;
+  border-right :1px solid #61696a;
+
 
   min-width: 120px;
   display: flex;
