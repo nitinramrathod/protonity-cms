@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    env: {
-        BASE_URL: process.env.BASE_URL,        
-      },
+  images: {
+    domains: ["https://www.google.com"]
+  },
+  env: {
+    BASE_URL: process.env.BASE_URL,
+  },
 };
 
 export default nextConfig;

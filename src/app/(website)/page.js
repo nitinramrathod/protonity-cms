@@ -13,16 +13,21 @@ export default async function Home() {
   return (
     <Wrapper>
 
-      <div className="heading-wrapper">
+      <div className="text-box">
 
 
-        <SubHeading>Welcome to</SubHeading>
-        <Heading>Multitech Computer Services</Heading>
+        <div className="heading-wrapper">
+
+
+          <SubHeading>Welcome to</SubHeading>
+          <Heading>Multitech Computer Services</Heading>
+        </div>
+        <div className="button-wrapper">
+          <LinkButton bordered href="/dashboard">Dashboard</LinkButton>
+          <LinkButton href="/contact-us">Contact Us</LinkButton>
+        </div>
       </div>
-      <div className="button-wrapper">
-        <LinkButton bordered href="/dashboard">Dashboard</LinkButton>
-        <LinkButton href="/contact-us">Contact Us</LinkButton>
-      </div>
+      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Ffree-png-bedzg&psig=AOvVaw3bfCocGTzZNhC-SBuNexeU&ust=1722841717248000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOj6qtfj2ocDFQAAAAAdAAAAABAE" alt="texxt" srcset="" />
     </Wrapper>
   );
 }

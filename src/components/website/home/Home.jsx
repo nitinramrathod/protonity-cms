@@ -32,6 +32,10 @@ export const Wrapper = styled.section`
   background: linear-gradient(45deg, #c0ffeb, #b688ff);
   height: calc(100vh - 70px);
 
+  .text-box{
+    /* background: red; */
+  }
+
   .heading-wrapper {
     max-width: 900px;
     margin: 0 auto;
