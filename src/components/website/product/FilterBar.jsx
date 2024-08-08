@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   left: 0;
   height: 70vh;
   max-height: 700px;
-  top: 30px;
+  top: 70px;
 
   .input-wrapper {
     display: flex;
