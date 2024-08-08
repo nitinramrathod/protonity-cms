@@ -5,6 +5,13 @@ import Link from "next/link";
 import React from "react";
 import { useSession } from "next-auth/react";
 import SearchInput from "./SearchInput";
+import {
+  call_icon,
+  dashboard_icon,
+  home_icon,
+  laptop_icon,
+  login_icon,
+} from "@/components/assets/icons/dashboard";
 
 const StyledNav = styled.nav`
   background: #ffffff74;
@@ -28,14 +35,6 @@ const StyledNav = styled.nav`
     gap: 20px;
     list-style: none;
     align-items: center;
-
-    li {
-      a {
-        color: #222222;
-        text-decoration: none;
-        font-size: 16px;
-      }
-    }
   }
 `;
 
@@ -44,8 +43,17 @@ const Logo = styled.h2`
   a {
     font-size: 30px;
     text-decoration: none;
-    color: #2d2d2d;
-    /* text-shadow: 0 0 5px #707070; */
+    color: #ebebeb;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-shadow: 2px 2px 0 black;
+
+    svg {
+      fill: #2d2d2d;
+      width: 40px;
+      height: auto;
+    }
   }
 `;
 const LoginLink = styled(Link)`
@@ -55,6 +63,27 @@ const LoginLink = styled(Link)`
   background: #014886;
   border-radius: 5px;
   padding: 5px 7px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  svg {
+    height: 20px;
+  }
+`;
+const IconLink = styled(Link)`
+  color: #222222;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 18px;
+
+  svg {
+    fill: #222222;
+    height: 20px;
+  }
 `;
 
 const Navigation = () => {
@@ -65,22 +94,22 @@ const Navigation = () => {
     <StyledNav>
       <div className="inner-wrapper">
         <Logo>
-          <Link href="/">MCS</Link>
+          <Link href="/">{laptop_icon}MCS</Link>
         </Logo>
         <SearchInput></SearchInput>
         <ul>
           <li>
-            <Link href="/">Home</Link>
+            <IconLink href="/"> {home_icon} Home</IconLink>
           </li>
           <li>
-            <Link href="/contact-us">Contact Us</Link>
+            <IconLink href="/contact-us">{call_icon}Contact Us</IconLink>
           </li>
 
           <li>
             {session.data ? (
-              <LoginLink href="/dashboard">Dashboard</LoginLink>
+              <LoginLink href="/dashboard">{dashboard_icon}Dashboard</LoginLink>
             ) : (
-              <LoginLink href="/login">Login</LoginLink>
+              <LoginLink href="/login">{login_icon} Login</LoginLink>
             )}
           </li>
         </ul>
