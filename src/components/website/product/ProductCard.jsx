@@ -10,12 +10,9 @@ const ProductCard = ({ data }) => {
         <Image className="product-image" src={laptop} alt={"laptop"}></Image>
       </div>
       <div className="detail-wrapper">
-        <h3>{data?.title || "Lenovo ThinkPad X1 Carbon Gen 10"}</h3>
-        <p>
-          {data?.description ||
-            "The Lenovo ThinkPad X1 Carbon Gen 10 is the ultimate business laptop, designed for professionals who need a reliable and high-performance machine. "}
-        </p>
-        <p className="price">{data?.price || "20,000/-"}</p>
+        <h3>{data?.title || "--"}</h3>
+        <p className="description">{data?.description || "--"}</p>
+        <p className="price">{data?.price || "--"}</p>
       </div>
       <div className="button-wrapper">
         <button>Buy</button>

@@ -33,7 +33,7 @@ export const ProductWrapper = styled.section`
   max-width: 1200px;
   display: grid;
   gap: 20px;
-  grid-template-columns: 200px auto;
+  grid-template-columns: 230px auto;
   padding: 50px 20px;
   .product-container {
     display: grid;
@@ -71,6 +71,14 @@ export const StyledCard = styled.div`
     /* background: red; */
   }
 
+  .description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
   .price {
     font-size: 20px;
     font-weight: 700;
@@ -85,7 +93,6 @@ export const StyledCard = styled.div`
     background: #014886;
     color: white;
     font-weight: 700;
-
   }
 `;
 

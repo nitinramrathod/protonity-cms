@@ -43,14 +43,13 @@ const Logo = styled.h2`
   a {
     font-size: 30px;
     text-decoration: none;
-    color: #ebebeb;
+    color: #3e68ff;
     display: flex;
     align-items: center;
     gap: 5px;
-    text-shadow: 2px 2px 0 black;
 
     svg {
-      fill: #2d2d2d;
+      fill: #3e68ff;
       width: 40px;
       height: auto;
     }
