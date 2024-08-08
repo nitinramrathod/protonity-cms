@@ -28,11 +28,66 @@ export const LinkButton = styled(Link)`
   border: ${({ bordered }) => (bordered ? "2px solid #15a9ba" : "none")};
 `;
 
+export const ProductWrapper = styled.section`
+  margin: auto;
+  max-width: 1200px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 200px auto;
+  /* position: relative; */
+  padding: 50px 20px;
+  .product-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    @media screen and (min-width: 768px) {
+      /* padding: 50px 20px; */
+    }
+  }
+`;
+export const StyledCard = styled.div`
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 7px;
+  }
+
+  .detail-wrapper {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .button-wrapper {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    /* background: red; */
+  }
+
+  .price {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  button {
+    padding: 5px 10px;
+  }
+`;
+
 export const Wrapper = styled.section`
   background: linear-gradient(45deg, #c0ffeb, #b688ff);
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
+  position: relative;
 
-  .text-box{
+  .text-box {
     /* background: red; */
   }
 
