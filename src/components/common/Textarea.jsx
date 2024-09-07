@@ -9,6 +9,10 @@ const Wrapper = styled.div`
     padding-bottom: 10px;
   }
 
+  &.light-input{
+    color: white;
+  }
+
 `;
 
 const StyledTextarea = styled.textarea`
@@ -60,12 +64,13 @@ function Textarea({
   error = false,
   disabled=false,
   innerRef,
+  className,
   rows=4,
   cols=4,   
 
 }) {
   return (
-    <Wrapper disabled={disabled}>
+    <Wrapper className={className} disabled={disabled}>
       <StyledLabel htmlFor={id}>{label}</StyledLabel>
       <StyledTextarea
         cols={cols}

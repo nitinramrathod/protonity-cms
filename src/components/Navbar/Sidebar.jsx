@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   .navigation-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
   }
 
   .logout{
@@ -95,6 +95,7 @@ const Sidebar = ({ className }) => {
         <Link className={isActive('/dashboard')} href="/dashboard">{dashboard_icon}Dashboard</Link>
         <Link className={isActive('/dashboard/users', true)} href="/dashboard/users">{users_icon}Users</Link>
         <Link className={isActive('/dashboard/enquiries')} href="/dashboard/enquiries">{enquiry_icon}Enquiries</Link>
+        <Link className={isActive('/dashboard/articles')} href="/dashboard/articles">{enquiry_icon}Articles</Link>
         <Link className={isActive('/')} href="/">{home_icon}Home</Link>
       </div>
       <button className="logout" onClick={()=>signOut()}>{logout_icon}Log Out</button>

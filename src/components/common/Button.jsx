@@ -105,9 +105,9 @@ const buttonStyles = css`
   padding: 10px 15px;
   border-radius: 7px;
   transition: all 0.3s ease;
-  border: 2px solid #514b82;
-  color: #514b82;
-  background: transparent;
+  border: 2px solid #2a8bee;
+  color: #ffffff;
+  background: #2a8bee;
   width: ${({ width }) => width || "fit-content"};
   display: flex;
   justify-content: center;
@@ -118,7 +118,7 @@ const buttonStyles = css`
   &:hover,
   &:focus {
     box-shadow: 0 0 0 3px #514b8258;
-    background: #514b82;
+    background: #165ea5;
     color: white;
     border-color: #514b82;
     .loader {

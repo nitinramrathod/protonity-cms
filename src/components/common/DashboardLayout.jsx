@@ -15,8 +15,9 @@ export const MainWrapper = styled.div`
   }
 
   .main-content {
-    padding: 10px;
+    padding: 15px;
     width: calc(100% - 210px);
     background: linear-gradient(170deg, #383f4c, #1b1b1b);
+    overflow-y: auto;
   }
 `;

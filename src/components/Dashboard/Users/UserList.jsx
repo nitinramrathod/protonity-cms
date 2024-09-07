@@ -5,10 +5,11 @@ import Table from "../../Table/Table";
 import { deleteUser, fetchUsers, updateStatus } from "@/utils/services";
 import styled from "@emotion/styled";
 import ListPageHeader from "../ListPageHeader";
-import { Loader, MainWrapper } from "../EnquiryList";
 import { delete_icon, edit_icon } from "@/components/assets/icons/dashboard";
 import Status from "@/components/common/Status";
 import ToggleButton from "@/components/common/ToggleButton";
+import { TableWrapper } from "../common/common.styled";
+import { Loader } from "../common/TableLoader";
 
 const header = [
   { title: "Name" },
@@ -115,7 +116,7 @@ const UserList = () => {
   ];
 
   return (
-    <MainWrapper>
+    <TableWrapper>
       <ListPageHeader
         stat={stat}
         buttonProps={buttonProps}
@@ -160,7 +161,7 @@ const UserList = () => {
           })
         )}
       </Table>
-    </MainWrapper>
+    </TableWrapper>
   );
 };
 

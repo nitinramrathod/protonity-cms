@@ -7,6 +7,8 @@ import ListPageHeader from "./ListPageHeader";
 import styled from "@emotion/styled";
 import { ActionTd } from "./Users/UserList";
 import { delete_icon, edit_icon } from "../assets/icons/dashboard";
+import { Loader } from "./common/TableLoader";
+import { TableWrapper } from "./common/common.styled";
 
 const header = [
   { title: "Name" },
@@ -21,48 +23,6 @@ const header = [
   { title: "Message" },
   { title: "Action" },
 ];
-
-export const MainWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-const TableLoader = styled.tr`
-  @keyframes loading {
-    0% {
-      background-color: #7e7e7e;
-    }
-    50% {
-      background-color: #ecebeb;
-    }
-    100% {
-      background-color: #7e7e7e;
-    }
-  }
-
-  td {
-    padding: 20px;
-  }
-
-  &:nth-child(odd) {
-    td {
-      animation: loading 1s infinite;
-    }
-  }
-`;
-
-export const Loader = ({ row = 10, column = 6 }) => {
-  return Array.from({ length: row }).map((row) => {
-    return (
-      <TableLoader key={row}>
-        {Array.from({ length: column }).map((_, colIndex) => (
-          <td key={colIndex}></td>
-        ))}
-      </TableLoader>
-    );
-  });
-};
 
 const EnquiryList = () => {
   const [enquiry, setEnquiry] = useState(null);
@@ -123,7 +83,7 @@ const EnquiryList = () => {
   ];
 
   return (
-    <MainWrapper>
+    <TableWrapper>
       <ListPageHeader
         stat={stat}
         buttonProps={buttonProps}
@@ -160,7 +120,7 @@ const EnquiryList = () => {
           })
         )}
       </Table>
-    </MainWrapper>
+    </TableWrapper>
   );
 };
 

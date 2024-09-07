@@ -9,6 +9,14 @@ const Wrapper = styled.div`
     padding-bottom: 10px;
   }
 
+  &.light-input{
+    label{
+      color: white;
+    }
+  }
+
+
+
 `;
 
 const StyledInput = styled.input`
@@ -56,6 +64,7 @@ function Input({
     console.log(e);
   },
   type = "text",
+  className,
   required = false,
   label = "Input label",
   id = "input_id",
@@ -64,7 +73,7 @@ function Input({
   innerRef
 }) {
   return (
-    <Wrapper disabled={disabled}>
+    <Wrapper className={className} disabled={disabled}>
       <StyledLabel htmlFor={id}>{label}</StyledLabel>
       <StyledInput
         placeholder={placeholder}

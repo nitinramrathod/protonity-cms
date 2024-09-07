@@ -3,6 +3,7 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 import React from "react";
+import { add_icon } from "../assets/icons/dashboard";
 
 const Wrapper = styled.div`
   background: #53677a;
@@ -34,6 +35,9 @@ const AddButton = styled(Link)`
   border-radius: 5px;
   padding: 10px;
   align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
 
 const Stat = styled.div`
@@ -77,7 +81,7 @@ const ListPageHeader = ({ heading, buttonProps, stat }) => {
           </Stat>
         )}
         <AddButton href={buttonProps?.href || ""}>
-          {buttonProps?.title}
+          {add_icon}{buttonProps?.title}
         </AddButton>
       </div>
     </Wrapper>
