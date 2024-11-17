@@ -5,62 +5,44 @@ import Table from "@/components/Table/Table";
 import { ActionTd } from "../Users/UserList";
 import { delete_icon, edit_icon } from "@/components/assets/icons/dashboard";
 
-const ArticleList = () => {
-  const buttonProps = {
-    href: "/dashboard/articles/add",
-    title: "Add Article",
-  };
+let default_header = [
+  { title: "Name" },
+  { title: "Organization" },
+  { title: "Mobile" },
+  { title: "Email Id" },
+  {
+    title: "Address",
+    width: "300px",
+  },
+  { title: "Pincode" },
+  { title: "Message" },
+  { title: "Action" },
+];
+const default_button_props = {
+  href: "/dashboard/articles/add",
+  title: "Add Article",
+};
 
-  const stat = [
-    { title: "Total Articles", count: 0 },
-    { title: "Active Articles", count: 0 },
-  ];
+const default_stat = [
+  { title: "Total Articles", count: 0 },
+  { title: "Active Articles", count: 0 },
+];
 
-  const header = [
-    { title: "Name" },
-    { title: "Organization" },
-    { title: "Mobile" },
-    { title: "Email Id" },
-    {
-      title: "Address",
-      width: "300px",
-    },
-    { title: "Pincode" },
-    { title: "Message" },
-    { title: "Action" },
-  ];
-
+const ArticleList = ({
+  header = default_header,
+  button_props = default_button_props,
+  stat = default_stat,
+  table_heading="Articles",
+  children,
+}) => {
   return (
     <TableWrapper>
       <ListPageHeader
         stat={stat}
-        buttonProps={buttonProps}
-        heading="Articles"
+        buttonProps={button_props}
+        heading={table_heading}
       />
-      <Table header={header}>
-        {Array.from({ length: 4 }).map((_, index) => (
-          <tr key={index}>
-            <td>{"--"}</td>
-            <td>{"--"}</td>
-            <td>{"--"}</td>
-            <td>{"--"}</td>
-            <td>{"--"}</td>
-            <td>{"--"}</td>
-            <td>{"--"}</td>
-            <ActionTd>
-              <div>
-                <button className="edit">{edit_icon}</button>
-                <button
-                  className="delete"
-                  //   onClick={() => handleDeleteEnquiry(item._id)}
-                >
-                  {delete_icon}
-                </button>
-              </div>
-            </ActionTd>
-          </tr>
-        ))}
-      </Table>
+      <Table header={header}>{children}</Table>
     </TableWrapper>
   );
 };
