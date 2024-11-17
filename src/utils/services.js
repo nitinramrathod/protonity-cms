@@ -54,6 +54,21 @@ const deleteUser = async (id) => {
         return new Error('Error in deleting user:', error)
     }
 }
+const deleteExpense = async (id) => {
+    try {
+        const response = await axios({
+            method: 'DELETE',
+            url: 'https://expense-api-jvlo.onrender.com/api/v1/expenses/'+ id,
+           
+        });
+        return response.data;
+    } catch (error) {
+        return new Error('Error in deleting user:', error)
+    }
+}
+
+
+
 const updateStatus = async (id, status) => {
     try {
         const response = await axios({
@@ -118,5 +133,6 @@ export {
     storeUser,
     deleteUser,
     deleteEnquiry,
-    login
+    login,
+    deleteExpense
 }
